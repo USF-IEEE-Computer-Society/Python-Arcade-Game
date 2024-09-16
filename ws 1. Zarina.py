@@ -13,20 +13,20 @@ meteors = []
 score = 0
 MAX_MET = 5
 game_state = "NEW_GAME" 
-WIN_SCORE =100
+WIN_SCORE =1000
 
 def update():
     global game_state
     
     if game_state == "PLAYING":
         if keyboard.left and spaceship.left > 0:
-            spaceship.x -= 5
+            spaceship.x -= 8
         if keyboard.right and spaceship.right < WIDTH:
-            spaceship.x += 5
+            spaceship.x += 8
         if keyboard.up and spaceship.top > 0:
-            spaceship.y -= 5
+            spaceship.y -= 8
         if keyboard.down and spaceship.bottom < HEIGHT:
-            spaceship.y += 5
+            spaceship.y += 8
         
         for missle in missles:
             missle.y -= 10
@@ -34,7 +34,7 @@ def update():
                 missles.remove(missle)
     
         for meteor in meteors:
-            meteor.y += 3
+            meteor.y += 10
             if meteor.top > HEIGHT:
                 meteors.remove(meteor)
 
